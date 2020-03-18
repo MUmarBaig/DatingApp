@@ -12,20 +12,6 @@ constructor(private http: HttpClient) { }
 
 
 login(model: any) {
- // return new Promise((resolve, reject) => {
-    // const headerContent = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Access-Control-Allow-Origin': '*'
-    // });
-  //   this.http.post(this.baseUrl + 'login', model).subscribe
-  //     ((response: any) => {
-  //       resolve(response);
-  //       localStorage.setItem('token', response.token);
-  //     },
-  //       (error: any) => {
-  //         reject(error);
-  //       });
-  // });
   return this.http.post(this.baseUrl + 'login', model)
   .pipe(
     map((response: any) => {
@@ -35,6 +21,10 @@ login(model: any) {
       }
     })
   );
+}
+
+register(model: any) {
+return this.http.post(this.baseUrl + 'register', model);
 }
 
 }
